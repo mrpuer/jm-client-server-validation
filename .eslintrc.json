@@ -15,7 +15,8 @@
       "singleQuote": true,
       "trailingComma": "es5",
       "endOfLine": "lf",
-      "printWidth": 100
+      "printWidth": 100,
+      "curly": "error"
     }],
     "max-depth": ["warn", 4],
     "id-length": ["warn", { "exceptions": ["i", "j"], "min": 1 }],
