@@ -2,11 +2,13 @@
   "name": "jm-client-server-validation",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mrpuer.github.io/jm-client-server-validation",
   "dependencies": {
     "antd": "^3.24.3",
     "formik": "^2.0.3",
     "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
+    "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -14,7 +16,7 @@
     "yup": "^0.27.0"
   },
   "scripts": {
-    "start": "npm start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
