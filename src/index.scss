@@ -1,4 +1,16 @@
 body {
   background-color: rgb(240, 242, 245);
-  margin-top: 50px;
+}
+
+.App {
+  padding: 30px;
+}
+
+.ant-form-item {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ant-form-item-control-wrapper {
+  width: 300px;
 }
