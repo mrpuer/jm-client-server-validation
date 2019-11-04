@@ -26,20 +26,16 @@ export default class Register extends React.Component {
           acceptTerms: false,
         }}
         validationSchema={contactsSchema}
+        onSubmit={(values, { setSubmitting }) => {
+          setSubmitting(false);
+        }}
         validate={values => {
           const errors = {};
-          if (!values.email) {
-            errors.email = 'Required';
-          } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-            errors.email = 'Invalid email address';
+          if (!/(^[0-9a-zA-Z]{8,40}$)([A-Z]+$)([0-9]+$)/.test(values.password)) {
+            errors.password =
+              'Password must contains 8-40 latin symbols, one on upper case, and one digit.';
           }
           return errors;
-        }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
         }}
       >
         {({
@@ -61,7 +57,6 @@ export default class Register extends React.Component {
                 onChange={handleChange}
                 value={values.name}
                 prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                required
               />
               {errors.name && touched.name && errors.name}
             </Form.Item>
@@ -87,6 +82,7 @@ export default class Register extends React.Component {
                 value={values.repeatPassword}
                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               />
+              {errors.repeatPassword && touched.repeatPassword && errors.repeatPassword}
             </Form.Item>
             <Form.Item label="Email">
               <Input
@@ -109,6 +105,7 @@ export default class Register extends React.Component {
                 value={values.website}
                 prefix={<Icon type="link" style={{ color: 'rgba(0,0,0,.25)' }} />}
               />
+              {errors.website && touched.website && errors.website}
             </Form.Item>
             <Form.Item label="Age">
               <Input
@@ -119,6 +116,7 @@ export default class Register extends React.Component {
                 value={values.age}
                 prefix={<Icon type="idcard" style={{ color: 'rgba(0,0,0,.25)' }} />}
               />
+              {errors.age && touched.age && errors.age}
             </Form.Item>
             <Form.Item label="Skills">
               <Input
@@ -131,9 +129,10 @@ export default class Register extends React.Component {
               />
             </Form.Item>
             <Form.Item>
-              <Checkbox name="acceptTerms">
+              <Checkbox name="acceptTerms" checked={values.acceptTerms}>
                 I have read the <a href="#agreement">agreement {field}</a>
               </Checkbox>
+              {errors.acceptTerms && touched.acceptTerms && errors.acceptTerms}
             </Form.Item>
             <Button type="primary" htmlType="submit" block disabled={isSubmitting}>
               Register
