@@ -1,5 +1,6 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { uniqueId } from 'lodash';
+import { FieldArray, Formik } from 'formik';
 import { Form, Input, Button, Checkbox, Icon } from 'antd';
 import contactsSchema from './schemas';
 
@@ -21,7 +22,7 @@ export default class Register extends React.Component {
           password: '',
           repeatPassword: '',
           website: '',
-          age: null,
+          age: '',
           skills: [],
           acceptTerms: false,
         }}
@@ -31,9 +32,12 @@ export default class Register extends React.Component {
         }}
         validate={values => {
           const errors = {};
-          if (!/(^[0-9a-zA-Z]{8,40}$)([A-Z]+$)([0-9]+$)/.test(values.password)) {
+          if (!/^(?=^.{8,40}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z]).*$/.test(values.password)) {
             errors.password =
               'Password must contains 8-40 latin symbols, one on upper case, and one digit.';
+          }
+          if (values.password !== values.repeatPassword) {
+            errors.repeatPassword = 'Passwords do not match';
           }
           return errors;
         }}
@@ -118,16 +122,36 @@ export default class Register extends React.Component {
               />
               {errors.age && touched.age && errors.age}
             </Form.Item>
-            <Form.Item label="Skills">
-              <Input
-                placeholder="Add Your Skill"
-                name="skills"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.skills}
-                prefix={<Icon type="star" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              />
-            </Form.Item>
+            <FieldArray name="skills">
+              {arrayHelpers => (
+                <Form.Item label="Skills">
+                  {values.skills.length > 0 &&
+                    values.skills.map((skill, idx) => (
+                      <React.Fragment key={uniqueId()}>
+                        <Input
+                          placeholder="Add Your Skill"
+                          name={`skills[${idx}]`}
+                          onChange={handleChange}
+                          value={skill}
+                          prefix={<Icon type="star" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        />
+                        <Icon
+                          className="dynamic-delete-button"
+                          type="minus-circle-o"
+                          onClick={() => arrayHelpers.remove(idx)}
+                        />
+                      </React.Fragment>
+                    ))}
+                  <Button
+                    type="dashed"
+                    onClick={() => arrayHelpers.push('')}
+                    style={{ width: '60%' }}
+                  >
+                    <Icon type="plus" /> Add new skill
+                  </Button>
+                </Form.Item>
+              )}
+            </FieldArray>
             <Form.Item>
               <Checkbox name="acceptTerms" checked={values.acceptTerms}>
                 I have read the <a href="#agreement">agreement {field}</a>

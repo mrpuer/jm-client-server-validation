@@ -5,8 +5,10 @@
   "homepage": "https://mrpuer.github.io/jm-client-server-validation",
   "dependencies": {
     "antd": "^3.24.3",
+    "express": "^4.17.1",
     "formik": "^2.0.3",
     "gh-pages": "^2.1.1",
+    "lodash": "^4.17.15",
     "node-sass": "^4.12.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
@@ -23,7 +25,8 @@
     "lint": "./node_modules/.bin/eslint --ext js,jsx src",
     "lint:fix": "./node_modules/.bin/eslint --ext js,jsx src --fix",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "server": "node ./server"
   },
   "eslintConfig": {
     "extends": "react-app"
