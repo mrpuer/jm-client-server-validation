@@ -29,6 +29,7 @@ export default class Register extends React.Component {
         validationSchema={contactsSchema}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(false);
+          console.log(values);
         }}
         validate={values => {
           const errors = {};
@@ -127,12 +128,12 @@ export default class Register extends React.Component {
                 <Form.Item label="Skills">
                   {values.skills.length > 0 &&
                     values.skills.map((skill, idx) => (
-                      <React.Fragment key={uniqueId()}>
+                      <React.Fragment key={skill.id}>
                         <Input
                           placeholder="Add Your Skill"
-                          name={`skills[${idx}]`}
+                          name={`skills[${idx}].value`}
                           onChange={handleChange}
-                          value={skill}
+                          value={skill.value}
                           prefix={<Icon type="star" style={{ color: 'rgba(0,0,0,.25)' }} />}
                         />
                         <Icon
@@ -144,7 +145,7 @@ export default class Register extends React.Component {
                     ))}
                   <Button
                     type="dashed"
-                    onClick={() => arrayHelpers.push('')}
+                    onClick={() => arrayHelpers.push({ id: uniqueId(), value: '' })}
                     style={{ width: '60%' }}
                   >
                     <Icon type="plus" /> Add new skill
@@ -153,7 +154,7 @@ export default class Register extends React.Component {
               )}
             </FieldArray>
             <Form.Item>
-              <Checkbox name="acceptTerms" checked={values.acceptTerms}>
+              <Checkbox name="acceptTerms" checked={values.acceptTerms} onChange={handleChange}>
                 I have read the <a href="#agreement">agreement {field}</a>
               </Checkbox>
               {errors.acceptTerms && touched.acceptTerms && errors.acceptTerms}
