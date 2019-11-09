@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://mrpuer.github.io/jm-client-server-validation",
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "antd": "^3.24.3",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "formik": "^2.0.3",
     "gh-pages": "^2.1.1",

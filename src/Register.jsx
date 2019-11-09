@@ -1,7 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import { uniqueId } from 'lodash';
 import { FieldArray, Formik } from 'formik';
-import { Form, Input, Button, Checkbox, Icon } from 'antd';
+import { Form, Input, Button, Icon } from 'antd';
 import contactsSchema from './schemas';
 
 export default class Register extends React.Component {
@@ -13,6 +14,7 @@ export default class Register extends React.Component {
   }
 
   render() {
+    // eslint-disable-next-line no-unused-vars
     const { field } = this.state;
     return (
       <Formik
@@ -24,12 +26,26 @@ export default class Register extends React.Component {
           website: '',
           age: '',
           skills: [],
-          acceptTerms: false,
+          // acceptTerms: true,
         }}
         validationSchema={contactsSchema}
         onSubmit={(values, { setSubmitting }) => {
+          const data = JSON.stringify(values, [
+            'name',
+            'email',
+            'password',
+            'website',
+            'age',
+            'skills',
+          ]);
+          const axiosConfig = {
+            headers: {
+              'Content-Type': 'application/json;charset=UTF-8',
+              'Access-Control-Allow-Origin': '*',
+            },
+          };
+          axios.post('/sign-up', data, axiosConfig).then(console.log);
           setSubmitting(false);
-          console.log(values);
         }}
         validate={values => {
           const errors = {};
@@ -153,12 +169,12 @@ export default class Register extends React.Component {
                 </Form.Item>
               )}
             </FieldArray>
-            <Form.Item>
-              <Checkbox name="acceptTerms" checked={values.acceptTerms} onChange={handleChange}>
-                I have read the <a href="#agreement">agreement {field}</a>
-              </Checkbox>
-              {errors.acceptTerms && touched.acceptTerms && errors.acceptTerms}
-            </Form.Item>
+            {/* <Form.Item> */}
+            {/*  <Checkbox name="acceptTerms" onChange={handleChange}> */}
+            {/*    I have read the <a href="#agreement">agreement {field}</a> */}
+            {/*  </Checkbox> */}
+            {/*  {errors.acceptTerms && touched.acceptTerms && errors.acceptTerms} */}
+            {/* </Form.Item> */}
             <Button type="primary" htmlType="submit" block disabled={isSubmitting}>
               Register
             </Button>
