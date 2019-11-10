@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { uniqueId } from 'lodash';
 import { FieldArray, Formik } from 'formik';
-import { Form, Input, Button, Icon } from 'antd';
+import { Form, Input, Button, Icon, Modal } from 'antd';
 import contactsSchema from './schemas';
 
 export default class Register extends React.Component {
@@ -29,7 +29,8 @@ export default class Register extends React.Component {
           // acceptTerms: true,
         }}
         validationSchema={contactsSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, setFieldError }) => {
+          setSubmitting(false);
           const data = JSON.stringify(values, [
             'name',
             'email',
@@ -44,8 +45,17 @@ export default class Register extends React.Component {
               'Access-Control-Allow-Origin': '*',
             },
           };
-          axios.post('/sign-up', data, axiosConfig).then(console.log);
-          setSubmitting(false);
+          axios
+            .post('/sign-up', data, axiosConfig)
+            .then(resp => {
+              Modal.success({
+                content: resp.data,
+              });
+            })
+            .catch(e => {
+              setFieldError(e.response.data.field, e.response.data.message);
+            });
+          setSubmitting(true);
         }}
         validate={values => {
           const errors = {};
