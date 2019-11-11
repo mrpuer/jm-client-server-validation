@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd78fb38-d2e7-4e45-a9c9-a7ba630c0bdb" name="Default Changelist" comment="Project init">
-      <change afterPath="$PROJECT_DIR$/src/schemas.js" afterDir="false" />
+    <list default="true" id="cd78fb38-d2e7-4e45-a9c9-a7ba630c0bdb" name="Default Changelist" comment="backend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
     </list>
@@ -16,6 +14,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -25,6 +24,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.6.0" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -59,6 +59,17 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="lint:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint:fix" />
+      </scripts>
+      <node-interpreter value="project" />
+      <package-manager value="npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="npm start" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -70,13 +81,28 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="server" />
+      </scripts>
+      <node-interpreter value="node" />
+      <package-manager value="npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="JavaScript Debug.Debug Application" />
       <item itemvalue="npm.npm start" />
       <item itemvalue="npm.lint" />
+      <item itemvalue="npm.server" />
+      <item itemvalue="npm.lint:fix" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.server" />
+        <item itemvalue="npm.lint:fix" />
         <item itemvalue="npm.lint" />
       </list>
     </recent_temporary>
@@ -95,6 +121,10 @@
       <workItem from="1572502693850" duration="15000" />
       <workItem from="1572502742396" duration="7872000" />
       <workItem from="1572611813569" duration="838000" />
+      <workItem from="1573312877632" duration="9249000" />
+      <workItem from="1573371663398" duration="215000" />
+      <workItem from="1573376599242" duration="107000" />
+      <workItem from="1573450479626" duration="3192000" />
     </task>
     <task id="LOCAL-00001" summary="Project init">
       <created>1572376223925</created>
@@ -103,7 +133,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572376223925</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="backend">
+      <created>1573312223671</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573312223672</updated>
+    </task>
+    <task id="LOCAL-00003" summary="babel">
+      <created>1573371854284</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573371854284</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +168,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project init" />
+    <MESSAGE value="backend" />
+    <MESSAGE value="babel" />
+    <option name="LAST_COMMIT_MESSAGE" value="babel" />
   </component>
 </project>

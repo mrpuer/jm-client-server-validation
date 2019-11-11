@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { uniqueId } from 'lodash';
 import { FieldArray, Formik } from 'formik';
-import { Form, Input, Button, Icon, Modal } from 'antd';
+import { Form, Input, Button, Icon, Modal, Alert, Row } from 'antd';
 import { contactsSchema } from './schemas';
 import Users from './Users';
 
@@ -77,7 +77,7 @@ const Register = () => {
               value={values.name}
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
             />
-            {errors.name && touched.name && errors.name}
+            {errors.name && touched.name && <Alert message={errors.name} type="error" />}
           </Form.Item>
           <Form.Item label="Password">
             <Input.Password
@@ -89,7 +89,9 @@ const Register = () => {
               value={values.password}
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
             />
-            {errors.password && touched.password && errors.password}
+            {errors.password && touched.password && (
+              <Alert message={errors.password} type="error" />
+            )}
           </Form.Item>
           <Form.Item label="Repeat Password">
             <Input.Password
@@ -101,7 +103,9 @@ const Register = () => {
               value={values.repeatPassword}
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
             />
-            {errors.repeatPassword && touched.repeatPassword && errors.repeatPassword}
+            {errors.repeatPassword && touched.repeatPassword && (
+              <Alert message={errors.repeatPassword} type="error" />
+            )}
           </Form.Item>
           <Form.Item label="Email">
             <Input
@@ -113,7 +117,7 @@ const Register = () => {
               value={values.email}
               prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
             />
-            {errors.email && touched.email && errors.email}
+            {errors.email && touched.email && <Alert message={errors.email} type="error" />}
           </Form.Item>
           <Form.Item label="Website URL">
             <Input
@@ -124,7 +128,7 @@ const Register = () => {
               value={values.website}
               prefix={<Icon type="link" style={{ color: 'rgba(0,0,0,.25)' }} />}
             />
-            {errors.website && touched.website && errors.website}
+            {errors.website && touched.website && <Alert message={errors.website} type="error" />}
           </Form.Item>
           <Form.Item label="Age">
             <Input
@@ -135,14 +139,14 @@ const Register = () => {
               value={values.age}
               prefix={<Icon type="idcard" style={{ color: 'rgba(0,0,0,.25)' }} />}
             />
-            {errors.age && touched.age && errors.age}
+            {errors.age && touched.age && <Alert message={errors.age} type="error" />}
           </Form.Item>
           <FieldArray name="skills">
             {arrayHelpers => (
               <Form.Item label="Skills">
                 {values.skills.length > 0 &&
                   values.skills.map((skill, idx) => (
-                    <React.Fragment key={skill.id}>
+                    <Row key={skill.id}>
                       <Input
                         placeholder="Add Your Skill"
                         name={`skills[${idx}].value`}
@@ -155,7 +159,7 @@ const Register = () => {
                         type="minus-circle-o"
                         onClick={() => arrayHelpers.remove(idx)}
                       />
-                    </React.Fragment>
+                    </Row>
                   ))}
                 <Button
                   type="dashed"
