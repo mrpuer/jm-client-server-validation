@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Row } from 'antd';
-import WrappedRegister from './Register';
+import Register from './Register';
 
 const { Content } = Layout;
 
@@ -13,7 +13,7 @@ function App() {
             <h1>New User Register</h1>
           </Row>
           <Row type="flex" justify="center">
-            <WrappedRegister />
+            <Register />
           </Row>
         </Content>
       </Layout>

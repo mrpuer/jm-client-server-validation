@@ -1,12 +1,17 @@
-import * as yup from 'yup';
+const yup = require('yup');
 
 const contactsSchema = yup.object().shape({
   name: yup
     .string()
     .max(50, 'Too long Name')
     .required('Name is required field.'),
-  password: yup.string().required('Password is required field.'),
-  repeatPassword: yup.string().required('You dont repeat password.'),
+  password: yup
+    .string()
+    .required('Password is required field.')
+    .matches(
+      /^(?=^.{8,40}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z]).*$/,
+      'Password must contains 8-40 latin symbols, one on upper case, and one digit.'
+    ),
   email: yup
     .string()
     .email('Invalid email address.')
@@ -14,11 +19,16 @@ const contactsSchema = yup.object().shape({
   website: yup.string().url(),
   age: yup
     .number()
+    .required('Age is required field.')
     .min(18, '18 is min age')
-    .max(65, '65 is the max age')
-    .required('Age is required field.'),
-  skills: yup.array(),
+    .max(65, '65 is the max age'),
+  skills: yup.array().of(
+    yup.object().shape({
+      id: yup.string(),
+      value: yup.string().transform(value => (value === '' ? null : value)),
+    })
+  ),
   acceptTerms: yup.bool(),
 });
 
-export default contactsSchema;
+module.exports.contactsSchema = contactsSchema;
