@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { uniqueId } from 'lodash';
-import { FieldArray, Formik } from 'formik';
+import { Field, FieldArray, Formik } from 'formik';
 import { Form, Input, Button, Icon, Modal, Alert, Row } from 'antd';
 import { contactsSchema } from './schemas';
 import Users from './Users';
 
 const Register = () => {
+  // noinspection HtmlUnknownAnchorTarget
   return (
     <Formik
       initialValues={{
@@ -17,7 +18,7 @@ const Register = () => {
         website: '',
         age: '',
         skills: [],
-        // acceptTerms: true,
+        acceptTerms: true,
       }}
       validationSchema={contactsSchema}
       onSubmit={(values, { setSubmitting, setFieldError }) => {
@@ -53,6 +54,9 @@ const Register = () => {
         const errors = {};
         if (values.password !== values.repeatPassword) {
           errors.repeatPassword = 'Passwords do not match';
+        }
+        if (!values.acceptTerms) {
+          errors.acceptTerms = 'You need accept terms';
         }
         return errors;
       }}
@@ -171,12 +175,13 @@ const Register = () => {
               </Form.Item>
             )}
           </FieldArray>
-          {/* <Form.Item> */}
-          {/*  <Checkbox name="acceptTerms" onChange={handleChange}> */}
-          {/*    I have read the <a href="#agreement">agreement {field}</a> */}
-          {/*  </Checkbox> */}
-          {/*  {errors.acceptTerms && touched.acceptTerms && errors.acceptTerms} */}
-          {/* </Form.Item> */}
+          <Form.Item>
+            <Field type="checkbox" name="acceptTerms" /> I have read the{' '}
+            <a href="#agreement">agreement</a>
+            {errors.acceptTerms && touched.acceptTerms && (
+              <Alert message={errors.acceptTerms} type="error" />
+            )}
+          </Form.Item>
           <Button type="primary" htmlType="submit" block disabled={isSubmitting}>
             Register
           </Button>

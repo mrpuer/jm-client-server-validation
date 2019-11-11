@@ -25,7 +25,7 @@ const contactsSchema = yup.object().shape({
   skills: yup.array().of(
     yup.object().shape({
       id: yup.string(),
-      value: yup.string().transform(value => (value === '' ? null : value)),
+      value: yup.string(),
     })
   ),
   acceptTerms: yup.bool(),
