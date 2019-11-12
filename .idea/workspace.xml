@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd78fb38-d2e7-4e45-a9c9-a7ba630c0bdb" name="Default Changelist" comment="backend">
+    <list default="true" id="cd78fb38-d2e7-4e45-a9c9-a7ba630c0bdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +124,9 @@
       <workItem from="1573312877632" duration="9249000" />
       <workItem from="1573371663398" duration="215000" />
       <workItem from="1573376599242" duration="107000" />
-      <workItem from="1573450479626" duration="3192000" />
+      <workItem from="1573450479626" duration="3272000" />
+      <workItem from="1573506325799" duration="19000" />
+      <workItem from="1573561309049" duration="249000" />
     </task>
     <task id="LOCAL-00001" summary="Project init">
       <created>1572376223925</created>
@@ -147,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573371854284</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="visual fixes">
+      <created>1573492026514</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573492026514</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +179,7 @@
     <MESSAGE value="Project init" />
     <MESSAGE value="backend" />
     <MESSAGE value="babel" />
-    <option name="LAST_COMMIT_MESSAGE" value="babel" />
+    <MESSAGE value="visual fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="visual fixes" />
   </component>
 </project>
