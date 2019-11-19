@@ -27,7 +27,6 @@ export default class Users extends React.Component {
           {users.map((user, id) => (
             // eslint-disable-next-line react/no-array-index-key
             <ul key={id}>
-              {console.log(user)}
               <li>{user.name}</li>
               <li>{user.email}</li>
               <li>

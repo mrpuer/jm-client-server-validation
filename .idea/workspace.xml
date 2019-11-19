@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd78fb38-d2e7-4e45-a9c9-a7ba630c0bdb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CustomInput.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schemas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/schemas.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +48,17 @@
   </component>
   <component name="RunManager" selected="npm.lint">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <package-manager value="npm" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -98,12 +111,14 @@
       <item itemvalue="npm.lint" />
       <item itemvalue="npm.server" />
       <item itemvalue="npm.lint:fix" />
+      <item itemvalue="npm.deploy" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.server" />
-        <item itemvalue="npm.lint:fix" />
         <item itemvalue="npm.lint" />
+        <item itemvalue="npm.server" />
+        <item itemvalue="npm.deploy" />
+        <item itemvalue="npm.lint:fix" />
       </list>
     </recent_temporary>
   </component>
@@ -126,7 +141,8 @@
       <workItem from="1573376599242" duration="107000" />
       <workItem from="1573450479626" duration="3272000" />
       <workItem from="1573506325799" duration="19000" />
-      <workItem from="1573561309049" duration="249000" />
+      <workItem from="1573561309049" duration="1147000" />
+      <workItem from="1574163801912" duration="5556000" />
     </task>
     <task id="LOCAL-00001" summary="Project init">
       <created>1572376223925</created>
@@ -156,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573492026514</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Readme update">
+      <created>1573561733106</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573561733106</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +203,7 @@
     <MESSAGE value="backend" />
     <MESSAGE value="babel" />
     <MESSAGE value="visual fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="visual fixes" />
+    <MESSAGE value="Readme update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme update" />
   </component>
 </project>

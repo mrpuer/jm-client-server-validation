@@ -12,6 +12,7 @@ const contactsSchema = yup.object().shape({
       /^(?=^.{8,40}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z]).*$/,
       'Password must contains 8-40 latin symbols, one on upper case, and one digit.'
     ),
+  repeatPassword: yup.string().oneOf([yup.ref('password'), null, ''], 'Passwords must match'),
   email: yup
     .string()
     .email('Invalid email address.')
